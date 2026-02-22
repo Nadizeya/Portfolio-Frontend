@@ -111,6 +111,18 @@ class ApiService {
     return [] as T;
   }
 
+  // Fix localhost URLs to use production backend
+  private fixImageUrl(url: string | undefined): string | undefined {
+    if (!url) return url;
+    
+    // Replace localhost URLs with production backend URL
+    if (url.includes('localhost:3000') || url.includes('localhost')) {
+      return url.replace(/http:\/\/localhost:3000|http:\/\/localhost:\d+/, API_BASE_URL.replace('/api', ''));
+    }
+    
+    return url;
+  }
+
   // Convert backend snake_case to frontend camelCase
   private convertProject(backendProject: BackendProject): DetailedProject {
     // Generate a placeholder image based on project category/tags
@@ -143,7 +155,7 @@ class ApiService {
         backendProject.description ||
         "A comprehensive project showcasing modern development practices.",
       myRole: backendProject.my_role || "Full Stack Developer",
-      image: backendProject.image || getPlaceholderImage(),
+      image: this.fixImageUrl(backendProject.image) || getPlaceholderImage(),
       tags: backendProject.tags || backendProject.technologies || [],
       link: backendProject.link || backendProject.live_url || "#",
       github: backendProject.github || backendProject.github_url || "#",
