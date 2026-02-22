@@ -1,0 +1,8 @@
+{
+  "name": "Elite Developer Portfolio",
+  "description": "A premium, minimalist developer portfolio featuring a white aesthetic, skill visualizations, and an integrated Gemini AI assistant.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
