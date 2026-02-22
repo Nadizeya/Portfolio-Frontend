@@ -70,11 +70,10 @@ const Hero: React.FC = () => {
           >
             <a
               href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download="Nadi_Zeya_Resume.pdf"
               className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-black text-[10px] font-black tracking-[0.25em] uppercase rounded-full hover:bg-emerald-400 transition-colors duration-300"
             >
-              Resume
+              Get Resume
             </a>
           </motion.div>
 
@@ -86,7 +85,7 @@ const Hero: React.FC = () => {
             className="flex gap-4 items-center"
           >
             <a
-              href="https://www.linkedin.com/in/your-profile"
+              href="https://www.linkedin.com/in/nadi-zeya/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full border border-slate-600 text-slate-400 hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300"
@@ -95,7 +94,7 @@ const Hero: React.FC = () => {
               <FaLinkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://github.com/your-username"
+              href="https://github.com/nadizeya"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full border border-slate-600 text-slate-400 hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300"
@@ -104,7 +103,7 @@ const Hero: React.FC = () => {
               <FaGithub className="w-6 h-6" />
             </a>
             <a
-              href="https://www.facebook.com/your-profile"
+              href="https://www.facebook.com/nadi.zeya"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full border border-slate-600 text-slate-400 hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300"
