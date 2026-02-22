@@ -1,7 +1,8 @@
 import { Project, Experience, Skill } from "../types";
 
 // Use environment variable for API URL, fallback to localhost for development
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
 const DEV_MODE = false; // Set to false when backend is ready
 
 // Backend response types (snake_case from database)
