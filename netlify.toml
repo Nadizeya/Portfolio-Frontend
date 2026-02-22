@@ -2,9 +2,6 @@
 # This tells Netlify how to build and deploy your frontend
 
 [build]
-  # Base directory for the build
-  base = "elite-developer-portfolio"
-  
   # Command to build your app
   command = "npm run build"
   
