@@ -7,6 +7,8 @@ import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
 import ContactForm from "./components/ContactForm";
+import LoadingScreen from "./components/LoadingScreen";
+import { apiService } from "./services/apiService";
 
 const Snowfall = () => {
   const [flakes, setFlakes] = useState<
@@ -52,9 +54,38 @@ const Snowfall = () => {
 };
 
 const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     document.documentElement.classList.add("dark");
+
+    // Preload critical data
+    const loadData = async () => {
+      try {
+        // Load all critical data in parallel
+        await Promise.all([
+          apiService.getSkills(),
+          apiService.getProjects(),
+          apiService.getExperiences(),
+        ]);
+
+        // Add a minimum display time for better UX
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+      } catch (error) {
+        console.error("Error loading data:", error);
+        // Continue anyway after a delay, components will handle their own loading
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
   }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="relative min-h-screen bg-[#020617] text-white selection:bg-emerald-500 selection:text-black transition-colors duration-500">

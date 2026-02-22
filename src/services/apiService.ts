@@ -114,12 +114,15 @@ class ApiService {
   // Fix localhost URLs to use production backend
   private fixImageUrl(url: string | undefined): string | undefined {
     if (!url) return url;
-    
+
     // Replace localhost URLs with production backend URL
-    if (url.includes('localhost:3000') || url.includes('localhost')) {
-      return url.replace(/http:\/\/localhost:3000|http:\/\/localhost:\d+/, API_BASE_URL.replace('/api', ''));
+    if (url.includes("localhost:3000") || url.includes("localhost")) {
+      return url.replace(
+        /http:\/\/localhost:3000|http:\/\/localhost:\d+/,
+        API_BASE_URL.replace("/api", ""),
+      );
     }
-    
+
     return url;
   }
 
