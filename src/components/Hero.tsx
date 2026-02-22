@@ -69,8 +69,9 @@ const Hero: React.FC = () => {
             className="flex flex-wrap gap-4 pt-2"
           >
             <a
-              href="/resume.pdf"
-              download="Nadi_Zeya_Resume.pdf"
+              href="https://drive.google.com/uc?export=download&id=15iRHPR43cdL_SWWrjCejBBggPG-giRmu"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-black text-[10px] font-black tracking-[0.25em] uppercase rounded-full hover:bg-emerald-400 transition-colors duration-300"
             >
               Get Resume
